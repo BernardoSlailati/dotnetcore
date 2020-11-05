@@ -1,8 +1,5 @@
 # .NET Core 3.1 MVC REST API - Commander
 
-Full Course Video: https://www.youtube.com/watch?v=fmvcAzHpsk8&list=PLMOI5f5peuFEqUWhNii6jl8XkH2ufMM5h&index=1&ab_channel=LesJackson
-GitHub Official Repository: https://github.com/binarythistle (thanks man!)
-
 ## What does it do?
 
 Application that manages (create, update and delete) descriptions of command lines in a SQL Server database.
@@ -20,4 +17,7 @@ Example:
 - Docker
 - SQL Server and Microsoft SQL Server Management Studio (optional)
 
-## 
+## References
+
+- [Full Course Video](https://www.youtube.com/watch?v=fmvcAzHpsk8&list=PLMOI5f5peuFEqUWhNii6jl8XkH2ufMM5h&index=1&ab_channel=LesJackson)
+- [GitHub Official Repository](https://github.com/binarythistle)
