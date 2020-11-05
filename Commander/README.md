@@ -17,6 +17,10 @@ Example:
 - Docker
 - SQL Server and Microsoft SQL Server Management Studio (optional)
 
+## Project Design Description
+
+![](https://github.com/BernardoSlailati/dotnetcore/blob/master/Commander/assets/project_description.svg)
+
 ## References
 
 - [Full Course Video](https://www.youtube.com/watch?v=fmvcAzHpsk8&list=PLMOI5f5peuFEqUWhNii6jl8XkH2ufMM5h&index=1&ab_channel=LesJackson)
