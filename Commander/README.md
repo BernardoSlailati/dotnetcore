@@ -2,7 +2,7 @@
 
 ## What does it do?
 
-Application that manages (create, update and delete) descriptions of command lines in a SQL Server database.
+Application that manages (create, update and delete) a list of command lines descriptions in a SQL Server database.
 
 Example:
 
