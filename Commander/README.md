@@ -4,7 +4,7 @@
 
 Manages (create, update and delete) a list of command lines descriptions.
 
-e.g.
+Example:
 
 | HowTo             | Line                                     | Platform              |
 |-------------------|------------------------------------------|-----------------------|
