@@ -1,0 +1,16 @@
+Solution to make C# intellisense => make sure "omnisharp" works its way from 
+the solution instead of the project:
+
+   1) Ctrl + Shift + p
+   2)  Write "OmniSharp: Select Project" and press Enter.
+   3)  Choose the solution workspace entry.
+
+   --------------------------------------------------------------------------
+
+~ The dotnet ef tool is no longer part of the .NET Core SDK ~
+
+   This change allows us to ship "dotnet ef" as a regular .NET CLI tool that can be installed as either
+   a global or local tool. For example, to be able to manage migrations or scaffold a DbContext, install
+   dotnet ef as a global tool typing the following command: dotnet tool install --global dotnet-ef
+
+   Obs: Cannot find command 'dotnet ef'? => In bash or zsh: export PATH="$PATH:$HOME/.dotnet/tools/"
