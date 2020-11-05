@@ -2,8 +2,7 @@
 
 ## What does it do?
 
-Manages (create, update and delete) a list of command lines descriptions in a SQL Server database.
-
+Manages (create, update and delete) a list of command lines descriptions.
 Example:
 
 | HowTo             | Line                                     | Platform              |
