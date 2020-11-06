@@ -20,7 +20,7 @@ Example:
 ## End Points Descriptions
 
 |        URI         |  Verb	| Operation	|    Description	         |       Success	        |      Failure                      |
-|--------------------|--------|-----------|--------------------------|------------------------|-----------------------------------|
+|:------------------:|:------:|:---------:|:------------------------:|:----------------------:|:---------------------------------:|
 |/api/commands/	     |   GET	|   READ	  | Read all resources	     |        200 OK	        | 400 Bad Request / 404 Not Found   |
 |/api/commands/{id}  |   GET	|   READ    | Read a single resource   |	      200 OK          |	400 Bad Request / 404 Not Found   |
 |/api/commands/      |  POST	|  CREATE	  | Create a new resource	   |     201 Created        |	400 Bad Request / 405 Not Allowed |
