@@ -7,9 +7,9 @@ Manages (create, update and delete) a list of command lines descriptions.
 
 Example:
 
-| HowTo             | Line                                     | Platform              |
-|-------------------|------------------------------------------|-----------------------|
-| Create migrations | dotnet ef migrations add <MigrationName> | Entity Framework Core |
+| Id | HowTo             | Line                                     | Platform              |
+|----|-------------------|------------------------------------------|-----------------------|
+| 1  | Create migrations | dotnet ef migrations add <MigrationName> | Entity Framework Core |
 
 ## What do I need to create this project?
 
