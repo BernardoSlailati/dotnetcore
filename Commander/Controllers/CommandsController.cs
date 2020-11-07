@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using AutoMapper;
 using Commander.Data;
 using Commander.Dtos;
@@ -115,6 +116,21 @@ namespace Commander.Controllers
             }
 
             _repository.DeleteCommand(commandById);
+            _repository.SaveChanges();
+
+            return NoContent();
+        }
+
+         // DELETE ALL => api/commands/
+        [HttpDelete]
+        public ActionResult DeleteAllCommands() 
+        {
+            var allCommands = _repository.GetAllCommands();
+            if (!allCommands.Any()) {
+                return NotFound();
+            }
+
+            _repository.DeleteAllCommands();
             _repository.SaveChanges();
 
             return NoContent();

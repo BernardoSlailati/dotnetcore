@@ -160,27 +160,6 @@
 				}
 			},
 			"response": []
-		},
-		{
-			"name": "Delete All",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:5000/api/commands/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"commands",
-						""
-					]
-				}
-			},
-			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}

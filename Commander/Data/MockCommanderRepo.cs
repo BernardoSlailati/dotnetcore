@@ -9,6 +9,10 @@ namespace Commander.Data
         {
         }
 
+        public void DeleteAllCommands()
+        {
+        }
+
         public void DeleteCommand(Command cmd)
         {
         }
