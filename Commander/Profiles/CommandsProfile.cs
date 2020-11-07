@@ -8,7 +8,15 @@ namespace Commander.Profiles
     {
         public CommandsProfile()
         {
-            CreateMap<Command, CommandReadDto>();
+            // Source (database) -> Target (user)
+            // GET
+            CreateMap<Command, CommandGetDto>();
+            // POST            
+            CreateMap<CommandCreateDto, Command>();
+            // PUT
+            CreateMap<CommandUpdateDto, Command>();
+            // PATCH
+            CreateMap<Command, CommandUpdateDto>();
         }
     }
 }
