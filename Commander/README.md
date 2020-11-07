@@ -17,6 +17,7 @@ Example:
 - .NET Core
 - Docker
 - SQL Server and Microsoft SQL Server Management Studio (optional)
+- Postman or another API Client software (optional)
 
 ## End Points Descriptions
 
