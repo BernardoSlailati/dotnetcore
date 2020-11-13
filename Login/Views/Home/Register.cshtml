@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "Register";
+}
+
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+        <label for="inputFirstName">Nome</label>
+        <input type="text" class="form-control" id="inputFirstName" placeholder="João">
+    </div>
+    <div class="form-group col-md-6">
+        <label for="inputLastName">Sobrenome</label>
+        <input type="text" class="form-control" id="inputLastName" placeholder="Silva Oliveira">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputEmail">Email</label>
+      <input type="email" class="form-control" id="inputEmail" placeholder="master@master.com">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword">Senha</label>
+      <input type="password" class="form-control" id="inputPassword">
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Cadastrar</button>
+  <button type="submit" class="btn btn-secondary" asp-action="Login">Voltar</button>
+</form>
