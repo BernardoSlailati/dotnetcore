@@ -5462,11 +5462,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/mnt/c/Users/Usuario/Documents/GitHub/dotnetcore/Commander/Commander.csproj",
+      "projectUniqueName": "/home/slailati/projects/dotnetcore/Commander/Commander.csproj",
       "projectName": "Commander",
-      "projectPath": "/mnt/c/Users/Usuario/Documents/GitHub/dotnetcore/Commander/Commander.csproj",
+      "projectPath": "/home/slailati/projects/dotnetcore/Commander/Commander.csproj",
       "packagesPath": "/home/slailati/.nuget/packages/",
-      "outputPath": "/mnt/c/Users/Usuario/Documents/GitHub/dotnetcore/Commander/obj/",
+      "outputPath": "/home/slailati/projects/dotnetcore/Commander/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/slailati/.nuget/NuGet/NuGet.Config"

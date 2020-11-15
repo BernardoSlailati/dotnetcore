@@ -1,0 +1,39 @@
+@model Product
+@{
+    ViewData["Title"] = "CreateUpdateProduct";
+}
+
+<div class="text-center mx-5">
+    <img src="~/img/product.svg" alt="" width="200px"></img>
+    @if (Model.Id == 0) {
+        <h4 class="display-4">Criar Produto</h4>
+    }
+    @if (Model.Id != 0) {
+        <h4 class="display-4">Atualizar Produto</h4>
+    }
+    <form asp-controller="Products" asp-action="CreateUpdateProduct">
+        <div class="form-group row">
+            <input type="hidden" class="form-control" id="inputId" asp-for="Id" required>
+        </div>
+        <div class="form-group row">
+            <label for="inputName" >Nome</label>
+            <input type="text" class="form-control" id="inputName" asp-for="Name" required>
+        </div>
+        <div class="form-group row">
+            <label for="inputQuantity">Quantidade</label>
+            <input type="number" min="1" class="form-control" id="inputQuantity" asp-for="Quantity" required>
+        </div>
+        <div class="form-group row">
+            <label for="inputUnity" >Unidade</label>
+            <input type="text" class="form-control" id="inputUnity" asp-for="Unity" required>
+        </div>
+        @if (Model.Id == 0) {
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Cadastrar</button>
+        }
+        @if (Model.Id != 0) {
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Atualizar</button>
+        }
+        
+    </form>
+
+</div>

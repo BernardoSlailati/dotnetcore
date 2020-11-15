@@ -1,20 +1,31 @@
+@model ApplicationUser
 @{
     ViewData["Title"] = "Login";
 }
 
-<div class="text-center mx-5" >
+<div class="text-center mx-5">
     <img src="~/img/login.svg" alt="" width="200px"></img>
     <h4 class="display-4">Login</h4>
-    <form>
+
+    @if (ViewData.ModelState.ErrorCount > 0)
+    {
+        <div class="alert alert-warning" role="alert">
+            <h4 class="alert-heading">Falha na tentativa de login!</h4>
+            <p>Revise as credenciais de email e senha e tente novamente.</p>
+        </div>
+    }
+    
+    <form asp-controller="Home" asp-action="Login">
         <div class="form-group row">
-            <label for="Email">Email</label>
-            <input type="email" class="form-control" id="Email" aria-describedby="emailHelp">
+            <label for="inputEmail">Email</label>
+            <input type="email" class="form-control" id="inputEmail" asp-for="Email" required>
         </div>
         <div class="form-group row">
-            <label for="Password">Senha</label>
-            <input type="password" class="form-control" id="Password">
+            <label for="inputPassword">Senha</label>
+            <input type="password" class="form-control" id="inputPassword" asp-for="Password" required>
         </div>
         <button type="submit" class="btn btn-primary btn-lg btn-block">Entrar</button>
         <p class="p-2"><a href="Register">Não possui cadastro?</a></p>
     </form>
 </div>
+

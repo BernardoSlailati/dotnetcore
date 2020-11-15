@@ -1,0 +1,22 @@
+Dependências:
+
+dotnet add package Microsoft.EntityFrameworkCore --version 3.1.10
+dotnet add package Microsoft.EntityFrameworkCore.InMemory --version 3.1.10
+dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection
+dotnet add package Microsoft.AspNetCore.Identity.EntityFrameworkCore --version 3.1.10
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 3.1.4
+
+- Criar classe ProductsDBContext e entidade Product
+- Configurar serviço em Startup para habilitar conexão com o database no projeto:
+
+    services.AddDbContext<ProductsDBContext>(options => 
+                options.UseInMemoryDatabase("Products")
+            );
+
+    Obs: database InMemory NÃO PRECISA DE MIGRATIONS!
+
+- Usar dotnet aspnet-codegenerator para criar Controller (ou criar na mão)
+
+    dotnet aspnet-codegenerator controller -name ProductsController -api -m Products.Models.Product -dc ProductsDBContext -outDir Controllers -namespace Products.Controllers
+    
+    Obs: falha ao encontrar comando "dotnet-aspnet-codegenerator" (ou "dotnet ef")? => export PATH="$PATH:$HOME/.dotnet/tools/"

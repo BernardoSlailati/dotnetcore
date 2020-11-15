@@ -152,3 +152,7 @@
 /home/slailati/projects/dotnetcore/Login/obj/Debug/netcoreapp3.1/Razor/Views/Home/Login.cshtml.g.cs
 /home/slailati/projects/dotnetcore/Login/obj/Debug/netcoreapp3.1/Razor/Views/Home/Register.cshtml.g.cs
 /home/slailati/projects/dotnetcore/Login/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs
+/home/slailati/projects/dotnetcore/Login/bin/Debug/netcoreapp3.1/AutoMapper.dll
+/home/slailati/projects/dotnetcore/Login/bin/Debug/netcoreapp3.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+/home/slailati/projects/dotnetcore/Login/obj/Debug/netcoreapp3.1/Razor/Views/Products/GetAllProducts.cshtml.g.cs
+/home/slailati/projects/dotnetcore/Login/obj/Debug/netcoreapp3.1/Razor/Views/Products/CreateUpdateProduct.cshtml.g.cs

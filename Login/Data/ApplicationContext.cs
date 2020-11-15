@@ -7,7 +7,8 @@ namespace Login.Data {
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> opt): base(opt)
         {
-            
         }
+        
+        public DbSet<Product> Products { get; set; }
     }
 }

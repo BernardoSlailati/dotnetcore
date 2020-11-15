@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Login.Data;
 using Login.Models;
 using Microsoft.AspNetCore.Builder;
@@ -34,14 +35,26 @@ namespace Login
             );
 
             // After that, it's possible to save In-Memory Database in cookies
-            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();
+            services.AddIdentity<ApplicationUser, IdentityRole>(options => 
+                {
+                    options.Password.RequiredLength = 6;
+                    options.Password.RequireLowercase = false;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequireNonAlphanumeric = false;
+                    options.Password.RequireDigit = false;
+                })
+                .AddEntityFrameworkStores<ApplicationContext>().AddDefaultTokenProviders();
 
             services.ConfigureApplicationCookie(options => {
                     options.Cookie.Name = "InMemoryDB";
-                    options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
+                    // options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
                     options.LoginPath = "/Home/Login";
                 }
             );
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddScoped<IProductsRepo, InMemoryProductsRepo>();
 
             services.AddControllersWithViews();
         }

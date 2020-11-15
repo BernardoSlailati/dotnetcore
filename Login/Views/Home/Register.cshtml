@@ -1,26 +1,49 @@
+@model ApplicationUser
 @{
     ViewData["Title"] = "Register";
 }
 
-<form>
+<div class="text-center mx-5">
+  <img src="~/img/register.svg" alt="" width="200px"></img>
+  <h4 class="display-4">Cadastro de Usuário</h4>
+  @if (ViewData.ModelState.ErrorCount > 0)
+  {
+    @foreach (var item in ViewData.ModelState.Values)
+    {
+      @foreach (var error in item.Errors)
+      {
+        <div class="alert alert-warning" role="alert">
+          <h4 class="alert-heading">Falha na tentativa de cadastro!</h4>
+          <p>Revise a senha escolhida (deverá conter no mínimo 6 caracteres), se o nome de usuário (proibido acentos, como ´~^) ou se o mesmo usuário já foi previamente cadastrado.</p>
+        </div>
+      } 
+    }
+  }
+</div>
+
+<form asp-controller="Home" asp-action="Register">
   <div class="form-row">
     <div class="form-group col-md-6">
-        <label for="inputFirstName">Nome</label>
-        <input type="text" class="form-control" id="inputFirstName" placeholder="João">
-    </div>
-    <div class="form-group col-md-6">
-        <label for="inputLastName">Sobrenome</label>
-        <input type="text" class="form-control" id="inputLastName" placeholder="Silva Oliveira">
+        <label for="inputUserName">Nome de Usuário</label>
+        <input type="text" class="form-control" id="inputUserName" asp-for="UserName" required>
     </div>
     <div class="form-group col-md-6">
       <label for="inputEmail">Email</label>
-      <input type="email" class="form-control" id="inputEmail" placeholder="master@master.com">
+      <input type="email" class="form-control" id="inputEmail" asp-for="Email" required>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="inputFirstName">Nome</label>
+        <input type="text" class="form-control" id="inputFirstName" asp-for="FirstName" required>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="inputLastName">Sobrenome</label>
+        <input type="text" class="form-control" id="inputLastName" asp-for="LastName" required>
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword">Senha</label>
-      <input type="password" class="form-control" id="inputPassword">
+      <input type="password" class="form-control" id="inputPassword" asp-for="Password" required>
+      <span asp-validation-for="Password" class="text-danger"></span>
     </div>
   </div>
   <button type="submit" class="btn btn-primary">Cadastrar</button>
-  <button type="submit" class="btn btn-secondary" asp-action="Login">Voltar</button>
 </form>
