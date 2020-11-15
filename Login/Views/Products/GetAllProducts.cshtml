@@ -1,11 +1,13 @@
 @model IEnumerable<Login.Models.Product>
 @{
     ViewData["Title"] = "GetAllProducts";
+    var userName = ViewContext.HttpContext.Request.Query["userName"];
 }
 
 <div class="text-center mx-5">
-    <img src="~/img/product.svg" alt="" width="200px"></img>
-    <h4 class="display-4 p-1">Lista de Produtos</h4>
+    <img src="~/img/product.svg" alt="" width="150px"></img>
+    <p class="h1 p-2">Lista de Produtos</p>
+    
     <table class="table">
         <thead class="thead-dark">
             <tr>
@@ -16,7 +18,7 @@
                     @Html.DisplayNameFor(model => model.UserName)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Date)
+                   @Html.DisplayNameFor(model => model.Date)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Name)
@@ -28,12 +30,12 @@
                     @Html.DisplayNameFor(model => model.Quantity)
                 </th>
                 <th>
-                    <a asp-action="CreateUpdateProduct" class="btn btn-success"><i class="far fa-plus-square mx-1"></i>Adicionar Produto</a>
+                    <a asp-action="CreateUpdateProduct" asp-route-userName="@userName" class="btn btn-success"><i class="far fa-plus-square mx-1"></i>Adicionar Produto</a>
                 </th>
             </tr>
         </thead>
         <tbody>
-            @foreach(var item in Model) {
+            @foreach(var item in Model.OrderBy(item => item.Date)) {
                 <tr>
                     <th scope="row">
                         @Html.DisplayFor(modelItem => item.Id)
@@ -42,7 +44,7 @@
                         @Html.DisplayFor(modelItem => item.UserName)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Date)
+                        @Html.ValueFor(modelItem => item.Date, "{0:dd-MM-yyyy HH:mm:ss}")
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Name)
@@ -54,7 +56,7 @@
                         @Html.DisplayFor(modelItem => item.Quantity)
                     </td>
                     <td>
-                        <a asp-action="CreateUpdateProduct" asp-route-id="@item.Id"><i class="fa fa-marker fa-lg"></i></a> |
+                        <a asp-action="CreateUpdateProduct" asp-route-id="@item.Id" asp-route-userName="@userName"><i class="fa fa-marker fa-lg"></i></a> |
                         <a asp-action="DeleteProduct" asp-route-id="@item.Id" class="text-danger ml-1"><i class="fa fa-trash-alt fa-lg"></i></a>
                     </td>
                 </tr>

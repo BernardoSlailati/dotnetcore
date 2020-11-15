@@ -5,19 +5,14 @@
 
 <div class="text-center mx-5">
   <img src="~/img/register.svg" alt="" width="200px"></img>
-  <h4 class="display-4">Cadastro de Usuário</h4>
+  <p class="h1 p-2">Cadastro de Usuário</p>
+
   @if (ViewData.ModelState.ErrorCount > 0)
   {
-    @foreach (var item in ViewData.ModelState.Values)
-    {
-      @foreach (var error in item.Errors)
-      {
-        <div class="alert alert-warning" role="alert">
-          <h4 class="alert-heading">Falha na tentativa de cadastro!</h4>
-          <p>Revise a senha escolhida (deverá conter no mínimo 6 caracteres), se o nome de usuário (proibido acentos, como ´~^) ou se o mesmo usuário já foi previamente cadastrado.</p>
-        </div>
-      } 
-    }
+    <div class="alert alert-warning" role="alert">
+      <h4 class="alert-heading">Falha na tentativa de cadastro!</h4>
+      <p>Revise a senha escolhida (deverá conter no mínimo 6 caracteres), se o nome de usuário (proibido acentos, como ´~^) ou se o mesmo usuário já foi previamente cadastrado.</p>
+    </div>
   }
 </div>
 

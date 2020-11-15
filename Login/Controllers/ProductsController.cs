@@ -4,7 +4,6 @@ using AutoMapper;
 using Login.Data;
 using Login.Dtos;
 using Login.Models;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -21,6 +20,14 @@ namespace Login.Controllers
         {
             _repository = repository;
             _mapper = mapper;
+        }
+
+        [HttpGet]
+        public ActionResult<IEnumerable<ProductGetDto>> GetAllProducts() 
+        {
+            var allProducts = _repository.GetAllProducts();
+            
+            return View(allProducts);
         }
 
         [HttpGet]
@@ -53,15 +60,7 @@ namespace Login.Controllers
             
             _repository.SaveChanges();
 
-            return RedirectToAction("GetAllProducts");
-        }
-
-        [HttpGet]
-        public ActionResult<IEnumerable<ProductGetDto>> GetAllProducts() 
-        {
-            var allProducts = _repository.GetAllProducts();
-            
-            return View(allProducts);
+            return RedirectToAction("GetAllProducts", new { userName = productCreateUpdate.UserName });
         }
 
         [HttpGet("{id}")]
@@ -72,7 +71,7 @@ namespace Login.Controllers
             _repository.DeleteProduct(productDelete);
             _repository.SaveChanges();
 
-            return RedirectToAction("GetAllProducts");
+            return RedirectToAction("GetAllProducts", new { userName = productDelete.UserName });
         }
 
     }

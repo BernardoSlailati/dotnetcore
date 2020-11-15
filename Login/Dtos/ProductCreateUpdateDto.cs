@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace Login.Dtos 
@@ -7,7 +8,9 @@ namespace Login.Dtos
         [Required]
         public int Id { get; set; }
         [Required]
-        public int UserName { get; set; }
+        public DateTime Date { get; set; }
+        [Required]
+        public string UserName { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]

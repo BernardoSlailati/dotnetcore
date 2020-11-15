@@ -12,7 +12,7 @@ namespace Login.Models {
         public int Id { get; set; }
         [Required]
         [DisplayName("Usuário")]
-        public int UserName { get; set; }
+        public string UserName { get; set; }
         [Required]
         [DisplayName("Criado em")]
         public DateTime Date { get; set; }

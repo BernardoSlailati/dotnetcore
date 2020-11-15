@@ -1,19 +1,24 @@
 @model Product
+
 @{
     ViewData["Title"] = "CreateUpdateProduct";
+    var quantity = Model.Quantity == 0 ? 1 : Model.Quantity;
+    var userName = ViewContext.HttpContext.Request.Query["userName"];
 }
 
 <div class="text-center mx-5">
-    <img src="~/img/product.svg" alt="" width="200px"></img>
+    <img src="~/img/product.svg" alt="" width="150px"></img>
     @if (Model.Id == 0) {
-        <h4 class="display-4">Criar Produto</h4>
+        <p class="h1 p-2">Cadastrar Produto</p>
     }
     @if (Model.Id != 0) {
-        <h4 class="display-4">Atualizar Produto</h4>
+        <p class="h1 p-2">Atualizar Produto</p>
     }
     <form asp-controller="Products" asp-action="CreateUpdateProduct">
         <div class="form-group row">
             <input type="hidden" class="form-control" id="inputId" asp-for="Id" required>
+            <input type="hidden" class="form-control" id="inputUserName" asp-for="UserName" value="@userName" required>
+            <input type="hidden" class="form-control" id="inputDate" asp-for="Date" required>
         </div>
         <div class="form-group row">
             <label for="inputName" >Nome</label>
@@ -21,19 +26,18 @@
         </div>
         <div class="form-group row">
             <label for="inputQuantity">Quantidade</label>
-            <input type="number" min="1" class="form-control" id="inputQuantity" asp-for="Quantity" required>
+            <input type="number" min="1" value="@quantity" class="form-control" id="inputQuantity" asp-for="Quantity" required>
         </div>
         <div class="form-group row">
             <label for="inputUnity" >Unidade</label>
             <input type="text" class="form-control" id="inputUnity" asp-for="Unity" required>
         </div>
         @if (Model.Id == 0) {
-            <button type="submit" class="btn btn-primary btn-lg btn-block">Cadastrar</button>
+            <button type="submit" class="btn btn-success btn-lg btn-block">Cadastrar</button>
         }
         @if (Model.Id != 0) {
             <button type="submit" class="btn btn-primary btn-lg btn-block">Atualizar</button>
         }
-        
     </form>
 
 </div>

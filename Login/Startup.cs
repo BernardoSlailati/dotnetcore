@@ -47,7 +47,7 @@ namespace Login
 
             services.ConfigureApplicationCookie(options => {
                     options.Cookie.Name = "InMemoryDB";
-                    // options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+                    options.ExpireTimeSpan = TimeSpan.FromMinutes(1);
                     options.LoginPath = "/Home/Login";
                 }
             );
