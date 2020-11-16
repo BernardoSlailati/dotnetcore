@@ -1,32 +1,32 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Products.Dtos;
 using Products.Models;
 
 namespace Products.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    class ProductsController : ControllerBase
+    public class ProductsController : ControllerBase
     {
         public readonly ProductsDBContext _context;
+
+        private readonly IMapper _mapper;
         
-        public ProductsController(ProductsDBContext context)
+        public ProductsController(ProductsDBContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
-        // [HttpGet]
-        // public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
-        // { 
-        //     return await _context.Products.ToListAsync();
-        // }
-
         [HttpGet]
-        public ActionResult GetProducts()
+        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         { 
-            return Ok();
+            return await _context.Products.ToListAsync();
         }
 
         [HttpGet("{id}")]
@@ -69,8 +69,11 @@ namespace Products.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<Product>> PostProduct(Product product)
+        public async Task<ActionResult<Product>> PostProduct(PostProductDto postProductDto)
         { 
+            var product = _mapper.Map<Product>(postProductDto);
+            product.Date = DateTime.Now;
+
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
 

@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Products.Models;
 
 namespace Products.Models {
     public class ProductsDBContext : DbContext
@@ -8,6 +7,7 @@ namespace Products.Models {
         {
         }
 
+        public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
     }
 }
